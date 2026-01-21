@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMarket - Used Electronics Marketplace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.jpg" alt="TechMarket Logo" class="logo-image">
+                    <span>TechMarket</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sell" class="nav-link">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-outline" id="loginBtn">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button class="btn btn-primary" id="sellBtn">
+                        <i class="fas fa-plus"></i> Sell Item
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sell Your Used Electronics</h1>
+            <p>Working or not - if it's in good condition, someone wants it!</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-large" id="startSelling">
+                    <i class="fas fa-tag"></i> Start Selling
+                </button>
+                <button class="btn btn-outline btn-large" id="browseProducts">
+                    <i class="fas fa-search"></i> Browse Products
+                </button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="device-showcase">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=300&fit=crop" alt="Android Phone" class="device device-1">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=300&fit=crop" alt="Laptop" class="device device-2">
+                <img src="https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=300&h=300&fit=crop" alt="Earbuds" class="device device-3">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop" alt="Headphones" class="device device-4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search for phones, laptops, earbuds...">
+                    <button class="btn btn-primary" id="searchBtn">Search</button>
+                </div>
+                <div class="filter-options">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="phones">Phones</option>
+                        <option value="laptops">Laptops</option>
+                        <option value="earbuds">Earbuds</option>
+                        <option value="earphones">Earphones</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <select id="conditionFilter">
+                        <option value="">All Conditions</option>
+                        <option value="working">Working</option>
+                        <option value="not-working">Not Working</option>
+                        <option value="for-parts">For Parts</option>
+                    </select>
+                    <select id="priceFilter">
+                        <option value="">Any Price</option>
+                        <option value="0-50">Under $50</option>
+                        <option value="50-200">$50 - $200</option>
+                        <option value="200-500">$200 - $500</option>
+                        <option value="500+">$500+</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            <div class="load-more-container">
+                <button class="btn btn-outline" id="loadMoreBtn">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sell Form Section -->
+    <section id="sell" class="sell-section">
+        <div class="container">
+            <div class="sell-form-container">
+                <h2>Sell Your Electronics</h2>
+                <form id="sellForm" class="sell-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productTitle">Product Title *</label>
+                            <input type="text" id="productTitle" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="phones">Phones</option>
+                                <option value="laptops">Laptops</option>
+                                <option value="earbuds">Earbuds</option>
+                                <option value="earphones">Earphones</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="condition">Condition *</label>
+                            <select id="condition" name="condition" required>
+                                <option value="">Select Condition</option>
+                                <option value="working">Working</option>
+                                <option value="not-working">Not Working</option>
+                                <option value="for-parts">For Parts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price ($) *</label>
+                            <input type="number" id="price" name="price" min="0" step="0.01" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" rows="4" required 
+                                  placeholder="Describe your item, including any defects, issues, or special features..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="images">Product Images</label>
+                        <div class="image-upload-container">
+                            <input type="file" id="images" name="images" multiple accept="image/*">
+                            <div class="image-preview" id="imagePreview">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-camera"></i>
+                                    <p>Click to upload images</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sellerName">Your Name *</label>
+                            <input type="text" id="sellerName" name="sellerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sellerEmail">Email *</label>
+                            <input type="email" id="sellerEmail" name="sellerEmail" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sellerPhone">Phone Number</label>
+                        <input type="tel" id="sellerPhone" name="sellerPhone">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-list"></i> List Product
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About TechMarket</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Give Your Electronics a Second Life</h3>
+                    <p>TechMarket is a dedicated marketplace for used electronics where working condition doesn't matter - only the value of the components and materials.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Sell working or non-working devices</li>
+                        <li><i class="fas fa-check"></i> Connect with buyers looking for spare parts</li>
+                        <li><i class="fas fa-check"></i> Eco-friendly electronics recycling</li>
+                        <li><i class="fas fa-check"></i> Safe and secure transactions</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop" alt="Electronics Repair" class="about-main-image">
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>1000+</h3>
+                        <p>Products Listed</p>
+                    </div>
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Happy Sellers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>2000+</h3>
+                        <p>Successful Sales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechMarket</h3>
+                    <p>Your trusted marketplace for used electronics.</p>
+                    <div class="footer-image">
+                        <img src="https://images.unsplash.com/photo-1517430815041-88740b7b5b5c?w=200&h=100&fit=crop" alt="TechMarket" class="footer-logo-img">
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#sell">Sell</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Phones</a></li>
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Earbuds</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@techmarket.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Product Details -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
